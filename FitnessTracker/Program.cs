@@ -10,6 +10,10 @@ namespace FitnessTracker
     {
         static void Main(string[] args)
         {
+            // Prompt the user for minutes excercised
+            // Add minutes exercised to total
+            // Display total minutes exercised to the screen
+            // Repeat until the user quits
 
         }
     }

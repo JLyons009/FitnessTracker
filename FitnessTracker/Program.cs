@@ -10,6 +10,7 @@ namespace FitnessTracker
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

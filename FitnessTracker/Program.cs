@@ -10,10 +10,20 @@ namespace FitnessTracker
     {
         static void Main(string[] args)
         {
+            int runningTotal = 0;
+
             // Prompt the user for minutes excercised
+            Console.Write("Enter how many minutes you exercised: ");
+            string entry = Console.ReadLine();
+
             // Add minutes exercised to total
+
+
             // Display total minutes exercised to the screen
+            Console.WriteLine("You have exercised " + entry + " minutes!");
+
             // Repeat until the user quits
+
 
         }
     }

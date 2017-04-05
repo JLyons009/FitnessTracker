@@ -10,70 +10,65 @@ namespace FitnessTracker
     {
         static void Main(string[] args)
         {
-            double runningTotal = 0;
-            bool keepGoing = true;
+            var runningTotal = 0.0;
 
             // Repeat until the user quits
-            while (keepGoing)
+            while (true)
             {
 
                 // Prompt the user for minutes excercised
                 Console.Write("Enter how many minutes you exercised or type 'quit' to exit: ");
-                string entry = Console.ReadLine();
+                var entry = Console.ReadLine();
 
                 if (entry.ToLower() == "quit")
                 {
-                    keepGoing = false;
                     Console.WriteLine("You exercised " + runningTotal + " minutes!  Great workout!");
+                    break;
+                }
+                
+                // Converting entry string into int minutes
+                var minutes = 0.0;
+                try
+                {
+                    minutes = double.Parse(entry);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("That is not a valid input.");
+                    continue;
                 }
 
+                // Checking validity of entry
+                if (minutes <= 0)
+                {
+                    Console.WriteLine("You have entered an invalid number of minutes.");
+                }
                 else
                 {
-                    // Converting entry string into int minutes
-                    double minutes = 0;
-                    try
-                    {
-                        minutes = double.Parse(entry);
-                    }
-                    catch (FormatException)
-                    {
-                        Console.WriteLine("That is not a valid input.");
-                        continue;
-                    }
+                    // Add minutes exercised to total
+                    runningTotal += minutes;
 
-                    // Checking validity of entry
-                    if (minutes <= 0)
+                    // Display total minutes exercised to the screen
+                    Console.WriteLine("You have exercised " + runningTotal + " minutes!");
+
+                    // Extra message based on total workout time
+                    if (runningTotal <= 10)
                     {
-                        Console.WriteLine("You have entered an invalid number of minutes.");
+                        Console.WriteLine("Better than nothing, am I right?");
+                    }
+                    else if (runningTotal <= 30)
+                    {
+                        Console.WriteLine("Way to go, hot stuff!");
+                    }
+                    else if (runningTotal <= 60)
+                    {
+                        Console.WriteLine("You must be a ninja warrior in training!");
                     }
                     else
                     {
-                        // Add minutes exercised to total
-                        runningTotal += minutes;
-
-                        // Display total minutes exercised to the screen
-                        Console.WriteLine("You have exercised " + runningTotal + " minutes!");
-
-                        // Extra message based on total workout time
-                        if (runningTotal <= 10)
-                        {
-                            Console.WriteLine("Better than nothing, am I right?");
-                        }
-                        else if (runningTotal <= 30)
-                        {
-                            Console.WriteLine("Way to go, hot stuff!");
-                        }
-                        else if (runningTotal <= 60)
-                        {
-                            Console.WriteLine("You must be a ninja warrior in training!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Okay, now you're just showing off!");
-                        }
+                        Console.WriteLine("Okay, now you're just showing off!");
                     }
                 }
-
             }
         }
     }

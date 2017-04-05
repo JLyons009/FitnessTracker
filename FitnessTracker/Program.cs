@@ -32,28 +32,35 @@ namespace FitnessTracker
                     // Converting entry string into int minutes
                     int minutes = int.Parse(entry);
 
-                    // Add minutes exercised to total
-                    runningTotal += minutes;
-
-                    // Display total minutes exercised to the screen
-                    Console.WriteLine("You have exercised " + runningTotal + " minutes!");
-
-                    // Extra message based on total workout time
-                    if (runningTotal <= 10)
+                    if (minutes <= 0)
                     {
-                        Console.WriteLine("Better than nothing, am I right?");
-                    }
-                    else if (runningTotal <= 30)
-                    {
-                        Console.WriteLine("Way to go, hot stuff!");
-                    }
-                    else if (runningTotal <= 60)
-                    {
-                        Console.WriteLine("You must be a ninja warrior in training!");
+                        Console.WriteLine("You have entered an invalid number of minutes.");
                     }
                     else
                     {
-                        Console.WriteLine("Okay, now you're just showing off!");
+                        // Add minutes exercised to total
+                        runningTotal += minutes;
+
+                        // Display total minutes exercised to the screen
+                        Console.WriteLine("You have exercised " + runningTotal + " minutes!");
+
+                        // Extra message based on total workout time
+                        if (runningTotal <= 10)
+                        {
+                            Console.WriteLine("Better than nothing, am I right?");
+                        }
+                        else if (runningTotal <= 30)
+                        {
+                            Console.WriteLine("Way to go, hot stuff!");
+                        }
+                        else if (runningTotal <= 60)
+                        {
+                            Console.WriteLine("You must be a ninja warrior in training!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Okay, now you're just showing off!");
+                        }
                     }
                 }
 

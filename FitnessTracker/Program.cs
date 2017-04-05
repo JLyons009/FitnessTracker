@@ -30,8 +30,18 @@ namespace FitnessTracker
                 else
                 {
                     // Converting entry string into int minutes
-                    int minutes = int.Parse(entry);
+                    int minutes = 0;
+                    try
+                    {
+                        minutes = int.Parse(entry);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("That is not a valid input.");
+                        continue;
+                    }
 
+                    // Checking validity of entry
                     if (minutes <= 0)
                     {
                         Console.WriteLine("You have entered an invalid number of minutes.");

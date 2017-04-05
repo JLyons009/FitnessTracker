@@ -17,10 +17,11 @@ namespace FitnessTracker
             string entry = Console.ReadLine();
 
             // Add minutes exercised to total
-
+            int minutes = int.Parse(entry);
+            runningTotal = runningTotal + minutes;
 
             // Display total minutes exercised to the screen
-            Console.WriteLine("You have exercised " + entry + " minutes!");
+            Console.WriteLine("You have exercised " + runningTotal + " minutes!");
 
             // Repeat until the user quits
 

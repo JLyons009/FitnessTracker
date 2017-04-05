@@ -10,7 +10,7 @@ namespace FitnessTracker
     {
         static void Main(string[] args)
         {
-            int runningTotal = 0;
+            double runningTotal = 0;
             bool keepGoing = true;
 
             // Repeat until the user quits
@@ -21,7 +21,7 @@ namespace FitnessTracker
                 Console.Write("Enter how many minutes you exercised or type 'quit' to exit: ");
                 string entry = Console.ReadLine();
 
-                if (entry == "quit")
+                if (entry.ToLower() == "quit")
                 {
                     keepGoing = false;
                     Console.WriteLine("You exercised " + runningTotal + " minutes!  Great workout!");
@@ -30,10 +30,10 @@ namespace FitnessTracker
                 else
                 {
                     // Converting entry string into int minutes
-                    int minutes = 0;
+                    double minutes = 0;
                     try
                     {
-                        minutes = int.Parse(entry);
+                        minutes = double.Parse(entry);
                     }
                     catch (FormatException)
                     {
